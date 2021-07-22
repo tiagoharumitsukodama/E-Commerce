@@ -29,7 +29,7 @@ class CardCarrinho extends React.Component{
                                 const quantidade = produtoSelecionado.quantidade
                                 const [produtoDados] = this.props.listaProdutos.filter( produto => produto.id===id )
 
-                                return <p>{`${quantidade}x ${produtoDados.name}`}</p>
+                                return <p key={id}>{`${quantidade}x ${produtoDados.name}`}</p>
                             })
                         }
                     </ListaItens>

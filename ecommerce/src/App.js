@@ -9,13 +9,13 @@ const listaProdutos = [
     id: 1,
     name: "Foguete da Missão Lindo 11",
     value: 1000.0,
-    imageUrl: "https://picsum.photos/200",
+    imageUrl: "https://picsum.photos/201",
   },
   {
     id: 2,
     name: "Avião da Missão Apollo 11",
     value: 20000.0,
-    imageUrl: "https://picsum.photos/200",
+    imageUrl: "https://picsum.photos/202",
   },
   {
     id: 3,
@@ -31,20 +31,29 @@ class App extends React.Component {
     filtroValorMaximo: "",
     filtroValorMínimo: "",
     filtroNome: "",
-    produtosSelecionados: [
-      {
-        id: 1,
-        quantidade: 4
-      },
-      {
-        id: 2,
-        quantidade: 3
-      },
-      {
-        id: 3,
-        quantidade: 2
-      }
-    ]
+    produtosSelecionados: []
+  }
+  
+  adicionarProdutoAoCarrinho = async (id) => {
+
+    const jaAdicionado = this.state.produtosSelecionados.some( produto => {
+      return produto.id===id 
+    })
+
+    if( !jaAdicionado ){
+      const novoItem = {id, quantidade: 0}
+      const listaComItem = [...this.state.produtosSelecionados, novoItem]
+      await this.setState({ produtosSelecionados: listaComItem })
+    } 
+
+    const novaLista = this.state.produtosSelecionados.map( produto => {
+      if(id === produto.id)
+        return { ...produto, quantidade: produto.quantidade+1 }
+
+      return produto
+    })
+
+    await this.setState({ produtosSelecionados: novaLista })
   }
 
   render(){
@@ -53,6 +62,7 @@ class App extends React.Component {
         <CardFiltro />
         <CardProdutos 
           listaProdutos={listaProdutos}
+          adicionarProdutoAoCarrinho={this.adicionarProdutoAoCarrinho}
           />
         <CardCarrinho 
           produtosSelecionados={this.state.produtosSelecionados}

@@ -2,32 +2,39 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Card = Styled.div`
-    min-width: 200px;
-    width: 40%;
-    height: 400px;
+    width: 300px;
+    height: 350px;
     transition: 0.3s;
     border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 `
 const Image = Styled.img`
     width: 100%;
-    height: 50%;
+    height: 70%;
 `
 
 class CardProduto extends React.Component{
     render(){
 
-        const {nome,value,imageUrl} = this.props.produto
+        const {id,name,value,imageUrl} = this.props.produto
 
         return (
             <Card>
                 <Image 
                     src={imageUrl} 
-                    alt={nome}
+                    alt={name}
                 />
                 <div>
-                    <h4><b>{nome}</b></h4>
-                    <p>{value}</p>
+                    <p>{name}</p>
+                    <p>R$: {value}</p>
                 </div>
+                <button onClick={() => this.props.adicionarProdutoAoCarrinho(id)}>
+                    Adicionar ao carrinho
+                </button>
             </Card>
         );
     }

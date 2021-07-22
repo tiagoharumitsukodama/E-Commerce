@@ -28,6 +28,10 @@ class CardProdutos extends React.Component{
         ordenacao: ''
     }
 
+    adicionarProdutoAoCarrinho = (id) => {
+        this.props.adicionarProdutoAoCarrinho(id)
+    }
+
     render(){
         return (      
             <div className="cardProdutos">
@@ -35,9 +39,13 @@ class CardProdutos extends React.Component{
                     <h2>Produtos</h2>
                     <Board>
                         {
-                            this.props.listaProdutos.map(produto => {
+                            this.props.listaProdutos.map((produto, index) => {
                                 return (
-                                    <CardProduto produto={produto} />
+                                    <CardProduto 
+                                        key={index}
+                                        produto={produto}
+                                        adicionarProdutoAoCarrinho={this.adicionarProdutoAoCarrinho}
+                                        />
                                 );
                             })
                         }
