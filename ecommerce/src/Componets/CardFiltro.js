@@ -11,10 +11,10 @@ const Card = Styled.div`
 class CardFiltro extends React.Component{
 
     onChangeFiltroValorMaximo = event => {
-        this.props.setInput({filtroValorMaximo: event.target.value})
+        this.props.setInput({filtroValorMaximo: Number(event.target.value)})
     }
     onChangeFiltroValorMinimo = event => {
-        this.props.setInput({filtroValorMinimo: event.target.value})
+        this.props.setInput({filtroValorMinimo: Number(event.target.value)})
     }
     onChangeFiltroNome = event => {
         this.props.setInput({filtroNome: event.target.value})

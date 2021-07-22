@@ -8,20 +8,26 @@ const listaProdutos = [
   {
     id: 1,
     name: "Foguete da Missão Lindo 11",
-    value: 1000.0,
+    value: 10.0,
     imageUrl: "https://picsum.photos/201",
   },
   {
     id: 2,
     name: "Avião da Missão Apollo 11",
-    value: 20000.0,
+    value: 20.0,
     imageUrl: "https://picsum.photos/202",
   },
   {
     id: 3,
     name: "Barco da Missão Apollo 11",
-    value: 30000.0,
+    value: 30.0,
     imageUrl: "https://picsum.photos/200",
+  },
+  {
+    id: 4,
+    name: "Capacete",
+    value: 5.0,
+    imageUrl: "https://picsum.photos/205",
   }
 ]
 
