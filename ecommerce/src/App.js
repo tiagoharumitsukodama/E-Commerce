@@ -29,7 +29,7 @@ class App extends React.Component {
 
   state = {
     filtroValorMaximo: "",
-    filtroValorMínimo: "",
+    filtroValorMinimo: "",
     filtroNome: "",
     produtosSelecionados: []
   }
@@ -55,14 +55,24 @@ class App extends React.Component {
 
     await this.setState({ produtosSelecionados: novaLista })
   }
+  setInput = ob => {
+    this.setState(ob)
+  }
 
   render(){
     return (
       <div className="App">
-        <CardFiltro />
+        <CardFiltro 
+          setInput={this.setInput}
+        />
         <CardProdutos 
           listaProdutos={listaProdutos}
           adicionarProdutoAoCarrinho={this.adicionarProdutoAoCarrinho}
+          filtros={{    
+            filtroValorMaximo: this.state.filtroValorMaximo,
+            filtroValorMinimo: this.state.filtroValorMinimo,
+            filtroNome: this.state.filtroNome,
+          }}
           />
         <CardCarrinho 
           produtosSelecionados={this.state.produtosSelecionados}

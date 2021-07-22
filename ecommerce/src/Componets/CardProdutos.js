@@ -33,10 +33,14 @@ class CardProdutos extends React.Component{
     }
 
     render(){
+        const {filtroValorMaximo, filtroValorMinimo, filtroNome} = this.props.filtros
+
         return (      
             <div className="cardProdutos">
                 <Card>
                     <h2>Produtos</h2>
+                    <p>Filtros:</p>
+                    <p>{filtroValorMaximo}:{filtroValorMinimo} e {filtroNome}</p>
                     <Board>
                         {
                             this.props.listaProdutos.map((produto, index) => {
