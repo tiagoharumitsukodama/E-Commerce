@@ -7,8 +7,6 @@ const Card = Styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-
-    background: green;
 `
 
 const Board = Styled.div`
@@ -22,11 +20,14 @@ const Board = Styled.div`
     width: 100%;
     margin: 2rem 0;
     padding: 1rem 0;
-
-    background: yellow;
 `
 
 class CardProdutos extends React.Component{
+
+    state = {
+        ordenacao: ''
+    }
+
     render(){
         return (      
             <div className="cardProdutos">

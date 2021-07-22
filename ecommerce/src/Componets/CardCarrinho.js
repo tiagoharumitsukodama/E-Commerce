@@ -6,8 +6,6 @@ const Card = Styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-
-    background: blue;
 `
 
 class CardCarrinho extends React.Component{

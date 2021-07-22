@@ -6,8 +6,6 @@ const Card = Styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-
-    background: red;
 `
 
 class CardFiltro extends React.Component{

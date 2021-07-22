@@ -7,8 +7,6 @@ const Card = Styled.div`
     height: 400px;
     transition: 0.3s;
     border: 1px solid black;
-
-    background: white;
 `
 
 const Image = Styled.img`
