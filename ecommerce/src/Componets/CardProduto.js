@@ -8,7 +8,6 @@ const Card = Styled.div`
     transition: 0.3s;
     border: 1px solid black;
 `
-
 const Image = Styled.img`
     width: 100%;
     height: 50%;
@@ -16,15 +15,18 @@ const Image = Styled.img`
 
 class CardProduto extends React.Component{
     render(){
+
+        const {nome,value,imageUrl} = this.props.produto
+
         return (
             <Card>
                 <Image 
-                    src="https://picsum.photos/200/300" 
-                    alt="Avatar" 
+                    src={imageUrl} 
+                    alt={nome}
                 />
                 <div>
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
+                    <h4><b>{nome}</b></h4>
+                    <p>{value}</p>
                 </div>
             </Card>
         );

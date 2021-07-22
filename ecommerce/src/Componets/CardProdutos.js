@@ -34,10 +34,13 @@ class CardProdutos extends React.Component{
                 <Card>
                     <h2>Produtos</h2>
                     <Board>
-                        <CardProduto />
-                        <CardProduto />
-                        <CardProduto />
-                        <CardProduto />
+                        {
+                            this.props.listaProdutos.map(produto => {
+                                return (
+                                    <CardProduto produto={produto} />
+                                );
+                            })
+                        }
                     </Board>
                 </Card>
             </div>

@@ -38,7 +38,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <CardFiltro />
-        <CardProdutos />
+        <CardProdutos listaProdutos={listaProdutos}/>
         <CardCarrinho />
       </div>
     );
