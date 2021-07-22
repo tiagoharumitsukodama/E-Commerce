@@ -61,6 +61,31 @@ class App extends React.Component {
 
     await this.setState({ produtosSelecionados: novaLista })
   }
+  removerProdutoCarrinho = async (id) => {
+
+    const [produtoARemover] = this.state.produtosSelecionados.filter(produto => {
+      return id===produto.id
+    })
+
+    let novaLista 
+
+    if(produtoARemover.quantidade===1){
+      novaLista = this.state.produtosSelecionados.filter(produto => {
+        return id!==produto.id
+      })
+    }
+    else{
+      novaLista = this.state.produtosSelecionados.map(produto => {
+
+        if(id===produto.id)
+          return {...produto, quantidade: produto.quantidade-1}
+        else
+          return produto
+      })
+    }
+
+    this.setState({ produtosSelecionados: novaLista})
+  }
   setInput = ob => {
     this.setState(ob)
   }
@@ -83,6 +108,7 @@ class App extends React.Component {
         <CardCarrinho 
           produtosSelecionados={this.state.produtosSelecionados}
           listaProdutos={listaProdutos}
+          removerProdutoCarrinho={this.removerProdutoCarrinho}
           />
       </div>
     );

@@ -81,7 +81,7 @@ class CardProdutos extends React.Component{
                     <Header>
                         <h2>Produtos disponíveis: {this.props.listaProdutos.length}</h2>
                         <FiltroOrdenacao>
-                            <label for='ordenacao'>Ordenar por valor </label>
+                            <label>Ordenar por valor </label>
                             <select name='ordenacao' onChange={this.onChangeOrdenacao}>
                                 <option value="">Nunhum</option>
                                 <option value="crescente">Crescente</option>
@@ -97,7 +97,7 @@ class CardProdutos extends React.Component{
                                         key={index}
                                         produto={produto}
                                         adicionarProdutoAoCarrinho={this.adicionarProdutoAoCarrinho}
-                                        />
+                                    />
                                 );
                             })
                         }

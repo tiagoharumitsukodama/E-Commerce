@@ -4,8 +4,9 @@ import Styled from 'styled-components';
 const Card = Styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 2rem;
+    padding: 1rem;
 `
 const ListaItens = Styled.div`
     display: flex;
@@ -14,6 +15,15 @@ const ListaItens = Styled.div`
     justify-content: flex-start;
 
     margin: 1rem 0;
+    width:90%;
+`
+const Item = Styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: .7rem;
 `
 
 class CardCarrinho extends React.Component{
@@ -29,12 +39,16 @@ class CardCarrinho extends React.Component{
                                 const quantidade = produtoSelecionado.quantidade
                                 const [produtoDados] = this.props.listaProdutos.filter( produto => produto.id===id )
 
-                                return <p key={id}>{`${quantidade}x ${produtoDados.name}`}</p>
+                                return <Item key={id}>
+                                        {`${quantidade}x ${produtoDados.name}`}
+                                        <button onClick={() => this.props.removerProdutoCarrinho(id)}>Remover</button>
+                                    </Item>
                             })
                         }
                     </ListaItens>
                     <p>
-                        <strong>Total: </strong>
+                        <strong>Total a pagar: </strong>
+                        R$:
                         {
                             this.props.produtosSelecionados.reduce( (total,produtoSelecionado) => {
                                 const id = produtoSelecionado.id
